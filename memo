@@ -1,0 +1,10 @@
+id
+authored_on
+category_id
+title
+body
+wheather_id
+create_at
+update_at
+
+rails g scaffold Diary authored_on:date category_id:integer title:string body:string wheather_id:integer
