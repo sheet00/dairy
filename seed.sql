@@ -1,21 +1,7 @@
 use diary;
 
 delete from diaries;
-
-select
-null,
-entry_authored_on,
-1,
-entry_title,
-entry_text,
-null,
-entry_id,
-entry_created_on,
-entry_modified_on
-from mt.mt_entry
-order by entry_authored_on
-limit 10
-;
+alter table diaries auto_increment = 1;
 
 
 insert into diaries
@@ -32,5 +18,7 @@ entry_created_on,
 entry_modified_on
 from mt.mt_entry
 order by entry_authored_on
-limit 10
 ;
+
+
+select title,authored_on from diaries limit 10 ;

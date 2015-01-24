@@ -8,7 +8,7 @@ mt_id
 create_at
 update_at
 
-rails g scaffold Diary authored_on:date category_id:integer title:string body:string wheather_id:integer mt_id:integer
+bundle exec rails g scaffold Diary authored_on:date category_id:integer title:string body:string wheather_id:integer mt_id:integer --skip-migrate
 
 
 

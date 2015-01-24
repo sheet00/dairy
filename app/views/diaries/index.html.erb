@@ -1,0 +1,39 @@
+<div class="page-header">
+  <%= link_to new_diary_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Diary
+  <% end %>
+  <h1>Listing diaries</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Authored on</th>
+            <th>Category</th>
+            <th>Title</th>
+            <th>Body</th>
+            <th>Wheather</th>
+            <th>Mt</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @diaries) do |diary| %>
+            <td><%= diary.authored_on %></td>
+            <td><%= diary.category_id %></td>
+            <td><%= diary.title %></td>
+            <td><%= diary.body %></td>
+            <td><%= diary.wheather_id %></td>
+            <td><%= diary.mt_id %></td>
+            <td><%= link_to 'Show', diary %></td>
+        <td><%= link_to 'Edit', edit_diary_path(diary) %></td>
+        <td><%= link_to 'Destroy', diary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
