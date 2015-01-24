@@ -15,4 +15,3 @@ bundle exec rails g scaffold Diary authored_on:date category_id:integer title:st
 bundle exec rails g simple_form:install --bootstrap
 bundle exec rails g bootstrap:install -f
 bundle exec rails g rspec:install
-

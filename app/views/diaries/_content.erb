@@ -1,8 +1,8 @@
 <div>
-	<div><%= diary.title %></div>
-	<div><%= diary.body.html_safe %></div>
-	<div><%= diary.authored_on %></div>
-	<div><%= diary.category_id %></div>
+	<div>title:<%= diary.title %></div>
+	<div><%= br(Sanitize.clean(diary.body, Sanitize::Config::RELAXED_CUSTOM)).html_safe %></div>
+	<div>authored_on:<%= diary.authored_on %></div>
+	<div>category_id:<%= diary.category_id %></div>
 
 </div>
 
