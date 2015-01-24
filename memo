@@ -4,7 +4,15 @@ category_id
 title
 body
 wheather_id
+mt_id
 create_at
 update_at
 
-rails g scaffold Diary authored_on:date category_id:integer title:string body:string wheather_id:integer
+rails g scaffold Diary authored_on:date category_id:integer title:string body:string wheather_id:integer mt_id:integer
+
+
+
+bundle exec rails g simple_form:install --bootstrap
+bundle exec rails g bootstrap:install -f
+bundle exec rails g rspec:install
+
