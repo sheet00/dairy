@@ -14,14 +14,14 @@
 ActiveRecord::Schema.define(version: 20150124040100) do
 
   create_table "diaries", force: :cascade do |t|
-    t.date     "authored_on",             null: false
-    t.integer  "category_id", limit: 4,   null: false
-    t.string   "title",       limit: 255, null: false
-    t.string   "body",        limit: 255, null: false
+    t.datetime "authored_on",               null: false
+    t.integer  "category_id", limit: 4,     null: false
+    t.string   "title",       limit: 255,   null: false
+    t.text     "body",        limit: 65535, null: false
     t.integer  "wheather_id", limit: 4
     t.integer  "mt_id",       limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "diaries", ["authored_on"], name: "index_diaries_on_authored_on", using: :btree

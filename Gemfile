@@ -50,4 +50,6 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'bootstrap-generators'
 gem 'mysql2'
+gem 'sanitize'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 

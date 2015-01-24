@@ -1,11 +1,12 @@
-<div class="page-header">
-  <%= link_to new_diary_path, :class => 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    New Diary
-  <% end %>
-  <h1>Listing diaries</h1>
-</div>
 
+
+<% @diaries.each do |item| %>
+  <!-- "object:"の部分は任意の名前で良いです。
+     部分テンプレート内ではその名前でオブジェクトにアクセスできます。-->
+  <%= render 'content', diary: item %>
+<% end %>
+
+<!---
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
@@ -37,3 +38,4 @@
     </tbody>
   </table>
 </div>
+-->
