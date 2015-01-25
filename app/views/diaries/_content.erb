@@ -1,10 +1,12 @@
-<div class="panel panel-default">
+<div class="diary_content panel panel-default">
 	<div class="panel-body">
 		<div>
-		<h1 class="page-header"><%= diary.title %></h1>
-			<div><%= br(Sanitize.clean(diary.body, Sanitize::Config::RELAXED_CUSTOM)).html_safe %></div>
-			<div>authored_on:<%= diary.authored_on %></div>
-			<div>category_id:<%= diary.category_id %></div>
+			<h1 class="diary_title page-header"><%= diary.title %></h1>
+			<div class="diary_body"><%= br(Sanitize.clean(diary.body, Sanitize::Config::RELAXED_CUSTOM)).html_safe %></div>
+			<div class="diary_footer">
+				<div class="diary_category col-md-6">category_id:<%= diary.category_id %></div>
+				<div class="diary_authored col-md-6"><%= diary.authored_on.strftime("%Y/%m/%d %H:%M:%S") %></div>
+			</div>
 		</div>    
 	</div>
 </div>
