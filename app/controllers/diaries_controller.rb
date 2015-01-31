@@ -4,7 +4,11 @@ class DiariesController < ApplicationController
   # GET /diaries
   # GET /diaries.json
   def index
-    @diaries = Diary.order("id desc").limit(10)
+    @diaries = Diary.page(params[:page]).per(5).order("authored_on desc")
+  end
+
+  def admin_index
+    @diaries = Diary.page(params[:page]).per(30).order("authored_on desc")
   end
 
   # GET /diaries/1
@@ -56,19 +60,19 @@ class DiariesController < ApplicationController
   def destroy
     @diary.destroy
     respond_to do |format|
-      format.html { redirect_to diaries_url, notice: 'Diary was successfully destroyed.' }
+      format.html { redirect_to admin_index_diaries_url, notice: 'Diary was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_diary
-      @diary = Diary.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_diary
+    @diary = Diary.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def diary_params
-      params.require(:diary).permit(:authored_on, :category_id, :title, :body, :wheather_id, :mt_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def diary_params
+    params.require(:diary).permit(:authored_on, :category_id, :title, :body, :wheather_id, :mt_id)
+  end
 end

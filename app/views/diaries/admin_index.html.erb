@@ -1,0 +1,47 @@
+<div class="page-header">
+
+	<%= link_to new_diary_path, :class => 'btn btn-default' do %>
+	<span class="glyphicon glyphicon-list-alt"></span>
+	New
+	<% end %>
+
+
+	<%= link_to diaries_path, :class => 'btn btn-default' do %>
+	<span class="glyphicon glyphicon-list-alt"></span>
+	Top
+	<% end %>
+	<h1>Admin Index</h1>
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>title</th>
+				<th>authored_on</th>
+				<th>created_at</th>
+				<th>updated_at</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @diaries.each do |diary| %>
+			<tr>
+				<td><%= diary.id %></td>
+				<td><%= diary.title %></td>
+				<td><%= to_strf(diary.authored_on) %></td>
+				<td><%= to_strf(diary.created_at) %></td>
+				<td><%= to_strf(diary.updated_at) %></td>
+				<td> <%= link_to 'Show', diary %></td>
+				<td> <%= link_to 'Edit', edit_diary_path(diary) %></td>
+				<td> <%= link_to 'Destroy', diary, data: { confirm: 'Are you sure?' },:method => :delete %></td>
+
+			</tr>
+
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<div id="diary_paginate">
+	<%=paginate @diaries, :theme=>'bootstrap3' %>
+</div>

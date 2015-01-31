@@ -21,7 +21,7 @@
   <dd><%= @diary.title %></dd>
 
   <dt>Body:</dt>
-  <dd><%= @diary.body %></dd>
+  <dd><%= br(Sanitize.clean(@diary.body, Sanitize::Config::RELAXED_CUSTOM)).html_safe %></dd>
 
   <dt>Wheather:</dt>
   <dd><%= @diary.wheather_id %></dd>

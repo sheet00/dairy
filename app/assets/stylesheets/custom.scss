@@ -5,23 +5,33 @@
 }
 
 /*diary*/
+.diary > div:last-child{
+	margin-bottom: 0px;
+}
+
 .diary_content{
 	margin:50px auto;
 	max-width: 800px;
+
+	.diary_title{
+		margin:10px 0px;
+	}
+
+	.diary_body{
+		padding: 10px 30px 0px;
+		margin-bottom:30px;
+	}
+
+	.diary_footer{
+		font-size: x-small;
+	}
+
+	.diary_authored{
+		text-align: right;
+	}
 }
 
-.diary_title{
-	margin:10px 0px;
-}
-.diary_body{
-	padding: 10px 30px 0px;
-	margin-bottom:30px;
-}
 
-.diary_footer{
-	font-size: x-small;
-}
-
-.diary_authored{
-	text-align: right;
+#diary_paginate{
+	text-align: center;
 }

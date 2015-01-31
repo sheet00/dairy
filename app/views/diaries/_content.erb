@@ -5,7 +5,7 @@
 			<div class="diary_body"><%= br(Sanitize.clean(diary.body, Sanitize::Config::RELAXED_CUSTOM)).html_safe %></div>
 			<div class="diary_footer">
 				<div class="diary_category col-md-6">category_id:<%= diary.category_id %></div>
-				<div class="diary_authored col-md-6"><%= diary.authored_on.strftime("%Y/%m/%d %H:%M:%S") %></div>
+				<div class="diary_authored col-md-6"><%= to_strf(diary.authored_on) %></div>
 			</div>
 		</div>    
 	</div>
