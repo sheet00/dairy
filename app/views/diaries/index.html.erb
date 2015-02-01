@@ -1,9 +1,14 @@
-<% @diaries.each do |item| %>
-<div class="diary">
-  <%= render 'content', diary: item %>
+<div class="diary col-md-9 col-md-offset-1">
+	<% @diaries.each do |item| %>
+		<%= render 'content', diary: item %>
+	<% end %>
 </div>
-<% end %>
+
+<div id="sidebar" class="col-md-2">
+	<%= render :partial => 'shared/sidebar' %>
+</div> 
+
 
 <div id="diary_paginate">
-  <%=paginate @diaries, :theme=>'bootstrap3' %>
+	<%=paginate @diaries, :theme=>'bootstrap3' %>
 </div>

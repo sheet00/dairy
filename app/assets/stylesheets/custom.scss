@@ -1,17 +1,50 @@
 /*application*/
 #header_image{
 	display: block;
-	margin:0 auto;
+	margin:0px auto 60px;
 }
 
+.not_line{
+	a{
+		text-decoration: none;
+	}
+}
+
+#main_container{
+}
+
+/*sidebar*/
+#sidebar{
+	padding-right: 0px;
+
+	.links{
+		text-align: center;
+		ul{
+			list-style-type: none;
+			padding:0px;
+			margin: 0px;
+
+			li{
+				display: inline-block;
+				margin-right:10px;
+			}
+
+			li:last-child{margin-right: 0px;}
+		}
+	}
+}
+
+
 /*diary*/
-.diary > div:last-child{
-	margin-bottom: 0px;
+.diary{
+	div:last-child{
+		margin-bottom: 0px;
+
+	}
 }
 
 .diary_content{
-	margin:50px auto;
-	max-width: 800px;
+	margin-bottom: 50px;
 
 	.diary_title{
 		margin:10px 0px;
