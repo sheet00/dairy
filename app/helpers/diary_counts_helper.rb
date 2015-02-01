@@ -1,0 +1,2 @@
+module DiaryCountsHelper
+end

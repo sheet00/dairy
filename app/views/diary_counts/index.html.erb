@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h1>Listing diary_counts</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+        <th>Year</th>
+    
+        <th>Month</th>
+    
+        <th>Monthly count</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @diary_counts) do |diary_count| %>
+    
+        <td><%= diary_count.year %></td>
+    
+        <td><%= diary_count.month %></td>
+    
+        <td><%= diary_count.monthly_count %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

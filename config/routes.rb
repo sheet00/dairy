@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :diary_counts
+
   root 'diaries#index'
   resources :diaries do
     collection do

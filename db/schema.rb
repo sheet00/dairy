@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150124040100) do
+ActiveRecord::Schema.define(version: 20150201035954) do
 
   create_table "diaries", force: :cascade do |t|
     t.datetime "authored_on",               null: false
@@ -25,5 +25,11 @@ ActiveRecord::Schema.define(version: 20150124040100) do
   end
 
   add_index "diaries", ["authored_on"], name: "index_diaries_on_authored_on", using: :btree
+
+  create_table "diary_counts", id: false, force: :cascade do |t|
+    t.integer "year",          limit: 4
+    t.integer "month",         limit: 4
+    t.integer "monthly_count", limit: 8, default: 0, null: false
+  end
 
 end

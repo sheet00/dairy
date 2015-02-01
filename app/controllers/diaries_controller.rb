@@ -5,6 +5,7 @@ class DiariesController < ApplicationController
   # GET /diaries.json
   def index
     @diaries = Diary.page(params[:page]).per(5).order("authored_on desc")
+    @diary_counts = DiaryCount.all.order("year desc, month desc")
   end
 
   def admin_index
