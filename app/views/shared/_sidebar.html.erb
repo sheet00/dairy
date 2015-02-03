@@ -21,20 +21,32 @@
 	</ul>
 </div>
 
-<div id="monthly_count">
-	<ul>
-		<% i = 0 
-		max_count = @diary_counts.count / 2
-		%>
-		<% @diary_counts.each do |item| %>
-			<% count_string = item.year.to_s + "/" + format("%02d", item.month) + " (" + item.monthly_count.to_s + ")" %>
-			<li style = "<%= if max_count <= i then 'display:none;' end %>" ><%= count_string %></li>
-			<% i = i + 1 %>
+
+
+<h3 class="title">categories</h3>
+
+
+<div id="monthly_list">
+	<h3 class="title">archives</h3>
+	<ul class="year">
+		<% @year_list.each do |row| %>
+		<% display = unless @year_list.first.year == row.year then "display:none" end %>
+		<li>
+			<a href="#" class="display_year"><%= row.year %></a>
+
+			<ul class="month" style="<%=display%>">
+				<% monthly = @monthly_list.select{|item| item.year == row.year} %>
+				<% monthly.each do |item| %>
+				<li>
+					<%= link_to Date.new(item.year,item.month,1).strftime("%B %Y"), diaries_path %>
+				</li>
+				<% end %>
+			</ul>
+
+		</li>
 		<% end %>
 
-		<% if max_count <= i then %>
-		<a id="more_monthly" class="btn btn-primary" href="#more_monthly">more</a>
-		<% end %>
+
 	</ul>
 
 </div>

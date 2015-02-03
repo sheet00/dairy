@@ -10,12 +10,20 @@
 	}
 }
 
-#main_container{
-}
+
 
 /*sidebar*/
 #sidebar{
-	padding-right: 0px;
+
+	font-family: "Source Sans Pro",sans-serif;
+
+	.title{
+		color: #4f4f4f;
+		letter-spacing: 2px;
+		font-weight: 600;
+		font-size: small;
+		text-align: center;
+	}
 
 	#links{
 		text-align: center;
@@ -34,18 +42,34 @@
 		}
 	}
 
-	#monthly_count{
-		font-size: small;
+	#monthly_list{
 		ul{
 			list-style-type: none;
+			padding-left: 10px;
 		}
 
 		li{
-			padding-bottom:1px;
+			border-top: 1px solid #f2f2f2;
+			padding: 8px 0px;
+			padding-left: 10px;
 		}
-		#more_monthly{
-			margin-top: 10px;
+
+		.year{
+			.month{
+				font-size: small;
+				li{
+					padding-right: 0px;
+					padding-left: 3px;
+				}
+				li:last-child{
+					padding-bottom: 0px;
+				}
+			}
+
+
 		}
+
+
 	}
 }
 

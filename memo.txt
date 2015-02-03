@@ -10,7 +10,6 @@ update_at
 
 bundle exec rails g scaffold Diary authored_on:date category_id:integer title:string body:string wheather_id:integer mt_id:integer --skip-migrate
 
-rails g scaffold DiaryCounts year:integer month:integer monthly_count:integer 
 
 select year(authored_on) as year, month(authored_on), count(*) as monthly_count from diaries
 group by year(authored_on),month(authored_on)

@@ -2,9 +2,16 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-diaries = 
+diaries =
 	$ ->
-		$("#more_monthly").click ->
-			console.log $("#monthly_count li")
-			$("#monthly_count li").toggle()
-			
+		$(".display_year").click ->
+			target = $(this).next(".month")
+			target.addClass("active")
+
+			#非表示処理
+			$(".month").removeClass("active")
+			$(".month:not(.active)").hide()
+
+			target.show("blind", 500)
+			return false
+
