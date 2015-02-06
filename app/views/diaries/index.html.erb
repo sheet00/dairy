@@ -1,6 +1,5 @@
 <%
 content_for :title do
-	pp request.parameters[:controller]
 	request.parameters[:controller] == "monthly" ? params[:year] + "/" + params[:month] : nil
 end
 %>
