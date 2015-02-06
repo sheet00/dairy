@@ -1,5 +1,11 @@
 class Diary < ActiveRecord::Base
 
+
+  #年月検索
+  def self.year_month(year,month)
+    self.where(["year(authored_on) = ? and month(authored_on) = ?", year, month])
+  end
+
   #年別の集計SQL
   def self.year_list
     self.select("year(authored_on) as year")

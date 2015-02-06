@@ -28,17 +28,16 @@
 
 <div id="monthly_list">
 	<h3 class="title">archives</h3>
-	<ul class="year">
+	<ul class="year-list">
 		<% @year_list.each do |row| %>
-		<% display = unless @year_list.first.year == row.year then "display:none" end %>
 		<li>
-			<a href="#" class="display_year"><%= row.year %></a>
+			<a href="#" class="year"><%= row.year %></a>
 
-			<ul class="month" style="<%=display%>">
+			<ul class="month" style="<%= if params[:year] == row.year.to_s then "display:block" else "display:none" end %>">
 				<% monthly = @monthly_list.select{|item| item.year == row.year} %>
 				<% monthly.each do |item| %>
 				<li>
-					<%= link_to Date.new(item.year,item.month,1).strftime("%B %Y"), diaries_path %>
+					<%= link_to Date.new(item.year,item.month,1).strftime("%B %Y"), monthly_path(item.year,item.month) %>
 				</li>
 				<% end %>
 			</ul>

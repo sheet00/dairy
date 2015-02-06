@@ -1,14 +1,22 @@
+<%
+content_for :title do
+	pp request.parameters[:controller]
+	request.parameters[:controller] == "monthly" ? params[:year] + "/" + params[:month] : nil
+end
+%>
+
 <div class="diary col-md-9 col-md-offset-1">
 	<% @diaries.each do |item| %>
-		<%= render 'content', diary: item %>
+	<%= render 'diaries/content', diary: item %>
 	<% end %>
+
+
+	<div id="diary_paginate">
+		<%=paginate @diaries, :theme=>'bootstrap3' %>
+	</div>
 </div>
 
 <div id="sidebar" class="col-md-2">
 	<%= render :partial => 'shared/sidebar', diary_counts: @diary_counts %>
-</div> 
-
-
-<div id="diary_paginate">
-	<%=paginate @diaries, :theme=>'bootstrap3' %>
 </div>
+

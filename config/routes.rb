@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  resources :diary_counts
-
   root 'diaries#index'
   resources :diaries do
     collection do
       get 'admin_index'
     end
   end
+
+  get 'monthly/:year/:month' => 'monthly#index', :as => "monthly" , :constraints => {:year=>/\d{4}/, :month=>/\d{1,2}/}
 
 
   # The priority is based upon order of creation: first created -> highest priority.
