@@ -1,3 +1,5 @@
+<% content_for :title do params[:action] end %>
+
 <div class="page-header">
   <%= link_to diaries_path, :class => 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
@@ -12,16 +14,16 @@
 
 <dl class="dl-horizontal">
   <dt>Authored on:</dt>
-  <dd><%= @diary.authored_on %></dd>
-
-  <dt>Category:</dt>
-  <dd><%= @diary.category_id %></dd>
+  <dd><%= to_strf(@diary.authored_on) %></dd>
 
   <dt>Title:</dt>
   <dd><%= @diary.title %></dd>
 
   <dt>Body:</dt>
   <dd><%= br(Sanitize.clean(@diary.body, Sanitize::Config::RELAXED_CUSTOM)).html_safe %></dd>
+
+  <dt>Category:</dt>
+  <dd><%= @diary.category_id %></dd>
 
   <dt>Wheather:</dt>
   <dd><%= @diary.wheather_id %></dd>

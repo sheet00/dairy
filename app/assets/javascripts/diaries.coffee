@@ -16,3 +16,7 @@ diaries =
 											target.show("blind", 500)
 											return false
 
+										$("#diary_authored_on").datetimepicker(
+											dateFormat: "yy-mm-dd",
+											timeFormat: "HH:mm"
+											)

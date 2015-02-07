@@ -1,6 +1,9 @@
 class Diary < ActiveRecord::Base
 
 
+  validates :authored_on, :title, :body, :category_id, presence: true
+
+
   #年月検索
   def self.year_month(year,month)
     self.where(["year(authored_on) = ? and month(authored_on) = ?", year, month])
