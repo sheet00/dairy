@@ -1,34 +1,47 @@
-<% content_for :title do params[:action] end %>
+<% content_for :title do @diary.title.html_safe end %>
 
-<div class="page-header">
+<div class="page-header hide">
   <%= link_to diaries_path, :class => 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Back
   <% end %>
   <%= link_to edit_diary_path(@diary), :class => 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+  <span class="glyphicon glyphicon-pencil"></span>
+  Edit
   <% end %>
   <h1>Show diary</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Authored on:</dt>
-  <dd><%= to_strf(@diary.authored_on) %></dd>
 
-  <dt>Title:</dt>
-  <dd><%= @diary.title %></dd>
+<div class="diary col-md-9 col-md-offset-1">
+  <%= render 'diaries/content', diary: @diary %>
 
-  <dt>Body:</dt>
-  <dd><%= br(Sanitize.clean(@diary.body, Sanitize::Config::RELAXED_CUSTOM)).html_safe %></dd>
 
-  <dt>Category:</dt>
-  <dd><%= @diary.category_id %></dd>
+  <ul class="nav nav-pills nav-justified">
+    <li class="<%= if @next.nil? then "disabled" end %>">
+      <%= link_to @next do %>
+      <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> new
+      <% end %>
+    </li>
 
-  <dt>Wheather:</dt>
-  <dd><%= @diary.wheather_id %></dd>
+    <li>
+      <%= link_to root_path do %>
+      <span class="glyphicon glyphicon-home" aria-hidden="true"></span> home
+      <% end %>
+    </li>
 
-  <dt>Mt:</dt>
-  <dd><%= @diary.mt_id %></dd>
+    <li class="<%= if @prev.nil? then "disabled" end %>">
+    <%= link_to @prev do %>
+      old <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+      <% end %>
+    </li>
 
-</dl>
+  </ul>
+
+</div>
+
+
+<div id="sidebar" class="col-md-2">
+  <%= render :partial => 'shared/sidebar', diary_counts: @diary_counts %>
+</div>
+

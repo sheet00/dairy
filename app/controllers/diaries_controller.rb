@@ -16,6 +16,10 @@ class DiariesController < ApplicationController
   # GET /diaries/1
   # GET /diaries/1.json
   def show
+    @prev = Diary.where("authored_on < ?", @diary.authored_on).order("authored_on desc").limit(1).first
+    @next = Diary.where("? < authored_on", @diary.authored_on).order("authored_on desc").limit(1).first
+    @year_list = Diary.year_list
+    @monthly_list = Diary.monthly_list
   end
 
   # GET /diaries/new

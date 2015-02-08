@@ -1,12 +1,14 @@
 <div class="diary_content panel panel-default">
 	<div class="panel-body">
 		<div>
-			<h1 class="diary_title page-header"><%= diary.title %></h1>
+			<h1 class="diary_title page-header">
+				<%= link_to diary.title, diary %>
+			</h1>
 			<div class="diary_body"><%= br(Sanitize.clean(diary.body, Sanitize::Config::RELAXED_CUSTOM)).html_safe %></div>
 			<div class="diary_footer">
 				<div class="diary_category col-md-6">category_id:<%= diary.category_id %></div>
 				<div class="diary_authored col-md-6"><%= to_strf(diary.authored_on) %></div>
 			</div>
-		</div>    
+		</div>
 	</div>
 </div>

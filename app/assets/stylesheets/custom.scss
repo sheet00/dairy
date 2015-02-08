@@ -1,4 +1,18 @@
 /*application*/
+body{
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+/*Glyphicons*/
+@font-face {
+	font-family: 'Glyphicons Halflings';
+	src: url('/assets/glyphicons-halflings-regular.eot');
+	src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+	url('/assets/glyphicons-halflings-regular.woff') format('woff'),
+	url('/assets/glyphicons-halflings-regular.ttf') format('truetype'),
+	url('/assets/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
 #header_image{
 	display: block;
 	margin:0px auto 60px;
@@ -6,14 +20,10 @@
 
 /*sidebar*/
 #sidebar{
-
-	font-family: "Source Sans Pro",sans-serif;
-
 	.title{
 		color: #4f4f4f;
 		letter-spacing: 2px;
-		font-weight: 600;
-		font-size: small;
+		font-size: medium;
 		text-align: center;
 	}
 
@@ -35,6 +45,9 @@
 	}
 
 	#monthly_list{
+
+		font-size: small;
+
 		ul{
 			list-style-type: none;
 			padding-left: 10px;
@@ -53,14 +66,13 @@
 			}
 
 			.year{
-				font-size: small;
+				letter-spacing: 2px;
 				color: #4f4f4f;
 			}
 
 
 			.month{
-
-				font-size: x-small;
+				font-size: small;
 
 				li{
 					padding-right: 0px;
@@ -81,12 +93,19 @@
 
 /*diary*/
 .diary{
+	font-family: 'メイリオ';
 
 	.diary_content{
 		margin-bottom: 50px;
 
 		.diary_title{
+			font-size: 25px;
+			font-weight: bold;
 			margin:10px 0px;
+
+			a:hover, a:focus{
+				text-decoration: none;
+			}
 		}
 
 		.diary_body{
