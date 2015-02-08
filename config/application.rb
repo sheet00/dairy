@@ -26,5 +26,6 @@ module NikkiGenerator
 
     #bootstrap - glyphicon
     config.assets.paths << "#{Rails}/vendor/assets/fonts"
+    config.assets.precompile += %w( *.svg *.eot *.woff *.ttf )
   end
 end
