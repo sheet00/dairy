@@ -1,17 +1,12 @@
 <% content_for :title do @diary.title.html_safe end %>
 
-<div class="page-header hide">
-  <%= link_to diaries_path, :class => 'btn btn-default' do %>
-  <span class="glyphicon glyphicon-list-alt"></span>
-  Back
-  <% end %>
-  <%= link_to edit_diary_path(@diary), :class => 'btn btn-primary' do %>
-  <span class="glyphicon glyphicon-pencil"></span>
-  Edit
-  <% end %>
+<% unless current_user.nil? %>
+<div class="page-header">
+  <a href="<%= admin_index_diaries_path %>" class="btn btn-default"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> list</a>
+  <a href="<%= edit_diary_path(@diary) %>" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> edit</a>
   <h1>Show diary</h1>
 </div>
-
+<% end %>
 
 <div class="diary col-md-9 col-md-offset-1">
   <%= render 'diaries/content', diary: @diary %>
@@ -31,7 +26,7 @@
     </li>
 
     <li class="<%= if @prev.nil? then "disabled" end %>">
-    <%= link_to @prev do %>
+      <%= link_to @prev do %>
       old <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
       <% end %>
     </li>

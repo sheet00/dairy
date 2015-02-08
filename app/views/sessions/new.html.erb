@@ -1,0 +1,24 @@
+<% content_for :title do "login" end %>
+
+<div class="page-header">
+	<h1>session#new</h1>
+	<% if current_user == nil %>
+	<%= link_to "login", new_session_path %>
+	<% else %>
+	<%= link_to "logout", session_path(current_user.id), method: :delete, data: {confirm: 'ログアウトしますか？'} %>
+	<% end %>
+	 / <%= link_to "admin_index", admin_index_diaries_path %>
+
+</div>
+
+<%= form_tag sessions_path do %>
+<form class="form-horizontal">
+	<div class="form-group form-inline">
+		<%= text_field_tag :name, params[:name], :class => "form-control", :placeholder => "login name" %>
+		<%= password_field_tag :pass , params[:pass], :class => "form-control", :placeholder => "password"  %>
+
+		<button class="btn btn-default" type="submit">login</button>
+	</div>
+</form>
+
+<% end %>

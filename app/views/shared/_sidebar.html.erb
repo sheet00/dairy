@@ -1,23 +1,9 @@
-<div id="links" class="not_line">
+<div id="links">
 	<ul>
-		<li>
-			<a href="https://twitter.com/sheet00">
-				<%= image_tag("icons/twitter.png", :size =>"25x25") %>
-			</a>
-		</li>
-
-		<li>
-			<a href="https://soundcloud.com/sheet">
-				<%= image_tag("icons/soundcloud.png", :size =>"25x25") %>
-			</a>
-		</li>
-
-
-		<li>
-			<a href="https://www.flickr.com/photos/sheet00/">
-				<%= image_tag("icons/flickr.png", :size =>"25x25") %>
-			</a>
-		</li>
+		<li><a href="https://twitter.com/sheet00"><%= image_tag("icons/twitter.png", :size =>"25x25") %></a></li>
+		<li><a href="https://soundcloud.com/sheet"><%= image_tag("icons/soundcloud.png", :size =>"25x25") %></a></li>
+		<li><a href="https://www.flickr.com/photos/sheet00/"><%= image_tag("icons/flickr.png", :size =>"25x25") %></a></li>
+		<li><a href="https://github.com/sheet00/"><%= image_tag("icons/github.png", :size =>"25x25") %></a></li>
 	</ul>
 </div>
 
@@ -26,7 +12,7 @@
 <h3 class="title">categories</h3>
 
 
-<div id="monthly_list">
+<div id="monthly-list">
 	<h3 class="title">archives</h3>
 	<ul class="year-list">
 		<% @year_list.each do |row| %>
@@ -41,11 +27,18 @@
 				</li>
 				<% end %>
 			</ul>
-
 		</li>
 		<% end %>
-
-
 	</ul>
-
 </div>
+
+
+<% unless current_user.nil? %>
+<div id="admin-menu">
+	<h3 class="title">admin-menu</h3>
+	<ul class="nav nav-pills nav-stacked">
+		<li><a href="<%= new_diary_path %>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>new diary</a></li>
+		<li><a href="<%= admin_index_diaries_path %>"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>list</a></li>
+	</ul>
+</div>
+<% end %>

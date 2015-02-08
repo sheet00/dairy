@@ -1,5 +1,7 @@
 class DiariesController < ApplicationController
   before_action :set_diary, only: [:show, :edit, :update, :destroy]
+  before_action :login_check, except: [:index, :show]
+
 
   # GET /diaries
   # GET /diaries.json
@@ -80,5 +82,11 @@ class DiariesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def diary_params
     params.require(:diary).permit(:authored_on, :category_id, :title, :body, :wheather_id, :mt_id)
+  end
+
+  def login_check
+    if (session[:user_id] == nil)
+      redirect_to root_path
+    end
   end
 end

@@ -22,20 +22,22 @@
 
 
     <div class="container">
+      <%= link_to image_tag("header.jpg", :id=> "header-image"), root_path %>
 
-      <%= link_to image_tag("header.jpg", :id=> "header_image"), root_path %>
-
-      <% flash.each do |name, msg| %>
-      <%= content_tag :div, :class => "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", :role => "alert" do %>
-      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      <%= msg %>
-      <% end %>
-      <% end %>
+        <div id="message">
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, :class => "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", :role => "alert" do %>
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <%= msg %>
+            <% end %>
+          <% end %>
+        </div>
 
       <div id="main_container">
-          <%= yield %>
+        <%= yield %>
       </div>
 
     </div>
+
   </body>
   </html>

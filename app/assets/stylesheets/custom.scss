@@ -13,7 +13,7 @@ body{
 	url('/assets/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
 
-#header_image{
+#header-image{
 	display: block;
 	margin:0px auto 60px;
 }
@@ -25,6 +25,13 @@ body{
 		letter-spacing: 2px;
 		font-size: medium;
 		text-align: center;
+	}
+
+	#admin-menu{
+		margin-bottom:20px;
+		.glyphicon{
+			margin-right:10px;
+		}
 	}
 
 	#links{
@@ -44,7 +51,7 @@ body{
 		}
 	}
 
-	#monthly_list{
+	#monthly-list{
 
 		font-size: small;
 
@@ -95,10 +102,10 @@ body{
 .diary{
 	font-family: 'メイリオ';
 
-	.diary_content{
+	.diary-content{
 		margin-bottom: 50px;
 
-		.diary_title{
+		.diary-title{
 			font-size: 25px;
 			font-weight: bold;
 			margin:10px 0px;
@@ -108,16 +115,16 @@ body{
 			}
 		}
 
-		.diary_body{
+		.diary-body{
 			padding: 10px 30px 0px;
 			margin-bottom:30px;
 		}
 
-		.diary_footer{
+		.diary-footer{
 			font-size: x-small;
 		}
 
-		.diary_authored{
+		.diary-authored{
 			text-align: right;
 		}
 	}
@@ -128,7 +135,6 @@ body{
 }
 
 
-#diary_paginate{
+#diary-paginate{
 	text-align: center;
 }
-
