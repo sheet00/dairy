@@ -10,7 +10,7 @@ class Sanitize
         address article aside bdi bdo body caption col colgroup data del div
         figcaption figure footer h1 h2 h3 h4 h5 h6 head header hgroup hr html
         img ins main nav rp rt ruby section span style summary sup table tbody
-        td tfoot th thead title tr wbr iframe
+        td tfoot th thead title tr wbr iframe script
       ],
 
       :allow_doctype => true,
@@ -31,7 +31,8 @@ class Sanitize
         'td'       => %w[abbr align axis colspan headers rowspan valign width],
         'th'       => %w[abbr align axis colspan headers rowspan scope sorted valign width],
         'ul'       => %w[type],
-        'iframe'  => %w[allowfullscreen frameborder height src width]
+        'iframe'   => %w[allowfullscreen frameborder height src width],
+        'script'   => %w[src]
       ),
 
       :protocols => merge(BASIC[:protocols],
