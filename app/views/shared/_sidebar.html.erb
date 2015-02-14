@@ -12,7 +12,7 @@
 	<h3 class="title">categories</h3>
 	<ul class="nav nav-pills nav-stacked">
 		<% Category.order(:no).each do |item| %>
-		<li>
+		<li class="<%=if params[:controller] == "category" and params[:id] == item.id.to_s then "active" else nil end %>">
 			<%= link_to item.name, diary_category_path(item.id) %>
 		</li>
 		<% end %>
@@ -27,10 +27,10 @@
 		<li>
 			<a href="#" class="year"><%= row.year %></a>
 
-			<ul class="month" style="<%= if params[:year] == row.year.to_s then "display:block" else "display:none" end %>">
+			<ul class="month nav nav-pills nav-stacked" style="<%= if params[:year] == row.year.to_s then "display:block" else "display:none" end %>">
 				<% monthly = monthly_list.select{|item| item.year == row.year} %>
 				<% monthly.each do |item| %>
-				<li>
+				<li class="<%=if params[:year] == item.year.to_s and params[:month] == item.month.to_s then "active" else nil end %>">
 					<%= link_to Date.new(item.year,item.month,1).strftime("%B %Y"), monthly_path(item.year,item.month) %>
 				</li>
 				<% end %>

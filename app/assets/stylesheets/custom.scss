@@ -91,11 +91,15 @@ body{
 
 
 			.month{
-				font-size: small;
-
+				font-size: 12px;
+				font-style: italic;
 				li{
 					padding-right: 0px;
 					padding-left: 3px;
+
+					a{
+						padding: 2px 10px;
+					}
 				}
 				li:last-child{
 					padding-bottom: 0px;
