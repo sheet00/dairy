@@ -84,9 +84,4 @@ class DiariesController < ApplicationController
     params.require(:diary).permit(:authored_on, :category_id, :title, :body, :wheather_id, :mt_id)
   end
 
-  def login_check
-    if (session[:user_id] == nil)
-      redirect_to root_path
-    end
-  end
 end

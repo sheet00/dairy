@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :categories
+
   resources :sessions, only: [:new, :create, :destroy]
   get 'login' => "sessions#new"
 

@@ -10,4 +10,11 @@ class ApplicationController < ActionController::Base
 
   #viewでも利用可
   helper_method :current_user
+
+  private
+  def login_check
+    if (session[:user_id] == nil)
+      redirect_to root_path
+    end
+  end
 end

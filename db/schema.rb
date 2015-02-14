@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208021302) do
+ActiveRecord::Schema.define(version: 20150214061622) do
+
+  create_table "categories", id: false, force: :cascade do |t|
+    t.integer  "id",         limit: 4,   null: false
+    t.integer  "no",         limit: 4,   null: false
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "categories", ["id"], name: "index_categories_on_id", unique: true, using: :btree
+  add_index "categories", ["no"], name: "index_categories_on_no", unique: true, using: :btree
 
   create_table "diaries", force: :cascade do |t|
     t.datetime "authored_on",               null: false
