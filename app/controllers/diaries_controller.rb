@@ -6,9 +6,7 @@ class DiariesController < ApplicationController
   # GET /diaries
   # GET /diaries.json
   def index
-    @diaries = Diary.page(params[:page]).per(5).order("authored_on desc")
-    @year_list = Diary.year_list
-    @monthly_list = Diary.monthly_list
+    @diaries = Diary.default(params[:page])
   end
 
   def admin_index
@@ -20,8 +18,6 @@ class DiariesController < ApplicationController
   def show
     @prev = Diary.where("authored_on < ?", @diary.authored_on).order("authored_on desc").limit(1).first
     @next = Diary.where("? < authored_on", @diary.authored_on).order("authored_on desc").limit(1).first
-    @year_list = Diary.year_list
-    @monthly_list = Diary.monthly_list
   end
 
   # GET /diaries/new
@@ -84,9 +80,4 @@ class DiariesController < ApplicationController
     params.require(:diary).permit(:authored_on, :category_id, :title, :body, :wheather_id, :mt_id)
   end
 
-  def login_check
-    if (session[:user_id] == nil)
-      redirect_to root_path
-    end
-  end
 end

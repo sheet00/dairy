@@ -1,4 +1,17 @@
+/*mixin*/
+@mixin letter {
+	letter-spacing: 2px;
+	color: #4f4f4f;
+}
+
+@mixin not-link {
+	a:hover, a:focus{
+		text-decoration: none;
+	}
+}
+
 /*application*/
+
 body{
 	font-family: 'Source Sans Pro', sans-serif;
 }
@@ -12,8 +25,7 @@ body{
 /*sidebar*/
 #sidebar{
 	.title{
-		color: #4f4f4f;
-		letter-spacing: 2px;
+		@include letter;
 		font-size: medium;
 		text-align: center;
 	}
@@ -42,6 +54,19 @@ body{
 		}
 	}
 
+	#category-list{
+		li{
+			@include letter;
+			font-size: small;
+
+			a{
+				padding-top: 2px;
+				padding-bottom: 2px;
+				padding-left: 50px;
+			}
+		}
+	}
+
 	#monthly-list{
 
 		font-size: small;
@@ -53,19 +78,15 @@ body{
 
 		li{
 			border-top: 1px solid #f2f2f2;
-			padding: 8px 0px;
+			padding: 6px 0px;
 			padding-left: 10px;
 		}
 
 		.year-list{
-
-			a:hover, a:focus{
-				text-decoration: none;
-			}
+			@include not-link;
 
 			.year{
-				letter-spacing: 2px;
-				color: #4f4f4f;
+				@include letter;
 			}
 
 
@@ -84,6 +105,11 @@ body{
 
 		}
 
+		#rss{
+			margin-left: 3px;
+			@include letter;
+		}
+
 
 	}
 }
@@ -97,13 +123,10 @@ body{
 		margin-bottom: 50px;
 
 		.diary-title{
+			@include not-link;
 			font-size: 25px;
 			font-weight: bold;
 			margin:10px 0px;
-
-			a:hover, a:focus{
-				text-decoration: none;
-			}
 		}
 
 		.diary-body{
@@ -112,7 +135,8 @@ body{
 		}
 
 		.diary-footer{
-			font-size: x-small;
+			@include not-link;
+			font-size: 12px;
 		}
 
 		.diary-authored{

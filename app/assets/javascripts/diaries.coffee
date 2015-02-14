@@ -20,3 +20,5 @@ diaries =
 											dateFormat: "yy-mm-dd",
 											timeFormat: "HH:mm"
 											)
+
+										$("#diary_category_id").selectpicker()

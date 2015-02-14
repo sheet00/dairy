@@ -4,9 +4,14 @@
 			<h1 class="diary-title page-header">
 				<%= link_to diary.title, diary %>
 			</h1>
-			<div class="diary-body"><%= br(Sanitize.clean(diary.body, Sanitize::Config::RELAXED_CUSTOM)).html_safe %></div>
+			<div class="diary-body"><%= convert_content(diary.body) %></div>
 			<div class="diary-footer">
-				<div class="diary-category col-md-6">category_id:<%= diary.category_id %></div>
+				<div class="diary-category col-md-6">
+					<a href="<%= diary_category_path(diary.category_id) %>">
+						<span class="glyphicon glyphicon-tag"></span>
+						<%= diary.category.name %>
+					</a>
+				</div>
 				<div class="diary-authored col-md-6"><%= to_strf(diary.authored_on) %></div>
 			</div>
 		</div>

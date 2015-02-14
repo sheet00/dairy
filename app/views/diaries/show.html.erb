@@ -1,4 +1,6 @@
 <% content_for :title do @diary.title.html_safe end %>
+<% content_for :keywords do @diary.category.name end %>
+<% content_for :description do get_description(@diary.body) end %>
 
 <% unless current_user.nil? %>
 <div class="page-header">
@@ -37,6 +39,6 @@
 
 
 <div id="sidebar" class="col-md-2">
-  <%= render :partial => 'shared/sidebar', diary_counts: @diary_counts %>
+  <%= render :partial => 'shared/sidebar' %>
 </div>
 

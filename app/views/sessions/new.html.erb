@@ -7,7 +7,10 @@
 	<% else %>
 	<%= link_to "logout", session_path(current_user.id), method: :delete, data: {confirm: 'ログアウトしますか？'} %>
 	<% end %>
-	 / <%= link_to "admin_index", admin_index_diaries_path %>
+	/
+	<%= link_to "admin_index", admin_index_diaries_path %>
+	/
+	<%= link_to "category", categories_path %>
 
 </div>
 
