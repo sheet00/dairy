@@ -1,18 +1,24 @@
 Rails.application.routes.draw do
-  resources :categories
+  root 'diaries#index'
 
   resources :sessions, only: [:new, :create, :destroy]
   get 'login' => "sessions#new"
 
-  root 'diaries#index'
   resources :diaries do
     collection do
       get 'admin_index'
     end
   end
 
+  resources :categories
+
+  #月別日記
   get 'monthly/:year/:month' => 'monthly#index', :as => "monthly" , :constraints => {:year=>/\d{4}/, :month=>/\d{1,2}/}
 
+  #カテゴリ別日記
+  get 'category/:id' => 'category#index', :as =>"diary_category"
+
+  #RSS
   get 'rss' => 'rss#rss'
 
 

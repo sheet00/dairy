@@ -6,7 +6,12 @@
 			</h1>
 			<div class="diary-body"><%= convert_content(diary.body) %></div>
 			<div class="diary-footer">
-				<div class="diary-category col-md-6">category_id:<%= diary.category_id %></div>
+				<div class="diary-category col-md-6">
+					<a href="<%= diary_category_path(diary.category_id) %>">
+						<span class="glyphicon glyphicon-tag"></span>
+						<%= diary.category.name %>
+					</a>
+				</div>
 				<div class="diary-authored col-md-6"><%= to_strf(diary.authored_on) %></div>
 			</div>
 		</div>

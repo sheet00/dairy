@@ -5,8 +5,27 @@ if request.parameters[:controller] == "monthly" then
 		params[:year] + "/" + params[:month]
 	end
 
+	content_for :keywords do
+		params[:year] + "/" + params[:month]
+	end
+
 	content_for :description do
 		params[:year] + "年" + params[:month] + "月の日記一覧であるぞ"
+	end
+
+elsif request.parameters[:controller] == "category" then
+	category = Category.find(params[:id])
+
+	content_for :title do
+		category.name
+	end
+
+	content_for :keywords do
+		category.name
+	end
+
+	content_for :description do
+		"カテゴリ：" + category.name + "の日記一覧であるぞ"
 	end
 end
 
@@ -24,6 +43,6 @@ end
 </div>
 
 <div id="sidebar" class="col-md-2">
-	<%= render :partial => 'shared/sidebar', diary_counts: @diary_counts %>
+	<%= render :partial => 'shared/sidebar' %>
 </div>
 
