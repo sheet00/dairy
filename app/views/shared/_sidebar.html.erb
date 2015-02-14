@@ -29,9 +29,16 @@
 			</ul>
 		</li>
 		<% end %>
-	</ul>
-</div>
 
+		<li>
+			<a href="<%= rss_path %>">
+				<%= image_tag("icons/feed-icon.png", :size =>"14x14") %>
+				<span id="rss">rss</span>
+			</a>
+		</li>
+	</ul>
+
+</div>
 
 <% unless current_user.nil? %>
 <div id="admin-menu">

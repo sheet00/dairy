@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'monthly/:year/:month' => 'monthly#index', :as => "monthly" , :constraints => {:year=>/\d{4}/, :month=>/\d{1,2}/}
 
+  get 'rss' => 'rss#rss'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
