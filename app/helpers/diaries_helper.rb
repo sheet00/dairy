@@ -7,6 +7,13 @@ module DiariesHelper
     str.html_safe
   end
 
+  #本文から概要の生成
+  #最大124文字
+  def get_description(str)
+    doc = Nokogiri::HTML(str)
+    doc.inner_text.gsub(/\r\n?/, " ").slice(0,64)
+  end
+
   private
   def br(str)
     (str).gsub(/(\r\n?)|(\n)/, "<br />")

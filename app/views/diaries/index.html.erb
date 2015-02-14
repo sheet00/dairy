@@ -1,7 +1,15 @@
 <%
-content_for :title do
-	request.parameters[:controller] == "monthly" ? params[:year] + "/" + params[:month] : nil
+
+if request.parameters[:controller] == "monthly" then
+	content_for :title do
+		params[:year] + "/" + params[:month]
+	end
+
+	content_for :description do
+		params[:year] + "年" + params[:month] + "月の日記一覧であるぞ"
+	end
 end
+
 %>
 
 <div class="diary col-md-9 col-md-offset-1">
