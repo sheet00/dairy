@@ -26,7 +26,7 @@ class Diary < ActiveRecord::Base
 
   #通常検索
   def self.default(page)
-    self.includes(:category)
+    self.includes(:category,:weather)
     .order(authored_on: :desc)
     .page(page)
     .per(5)
