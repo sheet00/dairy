@@ -14,7 +14,7 @@
 				</div>
 				<div class="diary-authored col-md-6">
 					<%= to_strf(diary.authored_on) %>
-					<span class="weather"><%= weather_icon(diary.weather.file_name) %><span>
+					<span class="weather"><%= if diary.weather_id then weather_icon(diary.weather.file_name) end %><span>
 				</div>
 			</div>
 		</div>
