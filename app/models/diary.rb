@@ -1,5 +1,6 @@
 class Diary < ActiveRecord::Base
   belongs_to :category
+  belongs_to :weather
 
   validates :authored_on, :title, :body, :category_id, presence: true
 

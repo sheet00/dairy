@@ -14,6 +14,10 @@ module DiariesHelper
     doc.inner_text.gsub(/\r\n?/, " ").slice(0,64)
   end
 
+  def weather_icon(file_name)
+    image_tag("weathers/" + file_name, :size => "22x22", :class => "weather")
+  end
+
   private
   def br(str)
     (str).gsub(/(\r\n?)|(\n)/, "<br />")

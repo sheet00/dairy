@@ -77,7 +77,7 @@ class DiariesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def diary_params
-    params.require(:diary).permit(:authored_on, :category_id, :title, :body, :wheather_id, :mt_id)
+    params.require(:diary).permit(:authored_on, :category_id, :title, :body, :weather_id, :mt_id)
   end
 
 end

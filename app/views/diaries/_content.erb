@@ -12,7 +12,10 @@
 						<%= diary.category.name %>
 					</a>
 				</div>
-				<div class="diary-authored col-md-6"><%= to_strf(diary.authored_on) %></div>
+				<div class="diary-authored col-md-6">
+					<%= to_strf(diary.authored_on) %>
+					<span class="weather"><%= weather_icon(diary.weather.file_name) %><span>
+				</div>
 			</div>
 		</div>
 	</div>

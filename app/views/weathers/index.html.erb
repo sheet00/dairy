@@ -1,0 +1,39 @@
+<div class="page-header">
+  <%= link_to new_weather_path, :class => 'btn btn-primary' do %>
+  <span class="glyphicon glyphicon-plus"></span>
+  New Weather
+  <% end %>
+  <h1>Listing weathers</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+
+        <th>id</th>
+        <th>file name</th>
+        <th>name</th>
+        <th>icon</th>
+
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @weathers) do |weather| %>
+
+      <td><%= weather.id %></td>
+      <td><%= weather.file_name %></td>
+      <td><%= weather.name %></td>
+      <td><%= image_tag("weathers/" + weather.file_name,:size => "30x30") %></td>
+
+      <td><%= link_to 'Show', weather %></td>
+      <td><%= link_to 'Edit', edit_weather_path(weather) %></td>
+      <td><%= link_to 'Destroy', weather, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -21,4 +21,4 @@ diaries =
 											timeFormat: "HH:mm"
 											)
 
-										$("#diary_category_id").selectpicker()
+										$("#diary_category_id, #diary_weather_id").selectpicker()

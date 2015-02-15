@@ -5,12 +5,12 @@ class CreateDiaries < ActiveRecord::Migration
       t.integer :category_id, :null=>false
       t.string :title, :null=>false
       t.text :body, :null=>false
-      t.integer :wheather_id
+      t.integer :weather_id
       t.integer :mt_id
 
       t.timestamps null: false
 
       t.index :authored_on
-    end    
+    end
   end
 end
