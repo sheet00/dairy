@@ -1,11 +1,16 @@
 <% content_for :title do params[:action] end %>
 
-<div class="page-header">
-	<a href="<%= diary_path(@diary) %>" class="btn btn-default" data-method="delete" rel="nofollow" data-confirm="Are you sure?">
-	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> del</a>
-	<a href="<%= admin_index_diaries_path %>" class="btn btn-default"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> list</a>
-	<a href="<%= diary_path(@diary) %>" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> show</a>
-	<h1>Editing diary</h1>
-</div>
+<div class="diary-form">
 
-<%= render 'form' %>
+	<div class="page-header">
+		<a href="<%= diary_path(@diary) %>" class="btn btn-default" data-method="delete" rel="nofollow" data-confirm="Are you sure?">
+			<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> del
+		</a>
+		<a href="<%= admin_index_diaries_path %>" class="btn btn-default"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> list</a>
+		<a href="<%= diary_path(@diary) %>" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> show</a>
+		<h1>Editing diary</h1>
+	</div>
+
+	<%= render 'form' %>
+
+</div>

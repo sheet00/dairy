@@ -141,20 +141,36 @@ body{
 		.diary-footer{
 			@include not-link;
 			font-size: 12px;
+
+			.diary-authored{
+				text-align: right;
+
+				.diary-weather{
+					margin-top: -3px;
+					margin-left: 3px;
+				}
+			}
+
 		}
 
-		.diary-authored{
-			text-align: right;
-			.weather{
-				margin-top: -3px;
-				margin-left: 3px;
-			}
-		}
 	}
 
 	.pagination{
 		margin-top: -20px;
 	}
+}
+
+/*new edit*/
+.diary-form{
+
+	#diary_authored_on{
+		width: 170px;
+	}
+
+	.btn-group.bootstrap-select.dropdown{
+		width: 120px;
+	}
+
 }
 
 

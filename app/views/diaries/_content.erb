@@ -6,15 +6,15 @@
 			</h1>
 			<div class="diary-body"><%= convert_content(diary.body) %></div>
 			<div class="diary-footer">
-				<div class="diary-category col-md-6">
-					<a href="<%= diary_category_path(diary.category_id) %>">
+				<div class="col-md-6">
+					<a href="<%= unless diary then diary_category_path(diary.category_id) end %>">
 						<span class="glyphicon glyphicon-tag"></span>
-						<%= diary.category.name %>
+						<span class="diary-category"><%= if diary.category_id then diary.category.name end %></span>
 					</a>
 				</div>
-				<div class="diary-authored col-md-6">
-					<%= to_strf(diary.authored_on) %>
-					<span class="weather"><%= if diary.weather_id then weather_icon(diary.weather.file_name) end %><span>
+				<div class="text-right col-md-6">
+					<span class="diary-authored"><%= to_strf(diary.authored_on) %></span>
+					<span class="diary-weather"><%= if diary.weather_id then weather_icon(diary.weather.file_name) end %><span>
 				</div>
 			</div>
 		</div>

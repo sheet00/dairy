@@ -21,4 +21,19 @@ diaries =
 											timeFormat: "HH:mm"
 											)
 
-										$("#diary_category_id, #diary_weather_id").selectpicker()
+										$("#diary_category_id, #diary_weather_id").addClass("dropdown").selectpicker()
+
+										$(".diary-form").change ->
+											changeContents($(".diary-title>a"),$("#diary_title").val())
+											changeContents($(".diary-body"),$("#diary_body").val())
+											changeContents($(".diary-footer .diary-category"),$(".category .selectpicker").attr("title"))
+											changeContents($(".diary-footer .diary-weather"),$(".weather .selectpicker").attr("title"))
+											changeContents($(".diary-footer .diary-authored"),$("#diary_authored_on").val())
+
+										changeContents = ($target,val) ->
+											console.log($target)
+											val = addBr(val)
+											$target.html(val)
+
+										addBr = (str) ->
+											str.replace(/\r?\n/g, '<br>')

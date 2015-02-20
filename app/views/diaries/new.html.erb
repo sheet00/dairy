@@ -1,11 +1,15 @@
 <% content_for :title do params[:action] end %>
 
-<div class="page-header">
-  <%= link_to diaries_path, :class => 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
-  <% end %>
-  <h1>New diary</h1>
-</div>
+<div class="diary-form">
 
-<%= render 'form' %>
+	<div class="page-header">
+		<%= link_to diaries_path, :class => 'btn btn-default' do %>
+		<span class="glyphicon glyphicon-list-alt"></span>
+		Back
+		<% end %>
+		<h1>New diary</h1>
+	</div>
+
+	<%= render 'form' %>
+
+</div>

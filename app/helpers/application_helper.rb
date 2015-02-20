@@ -1,5 +1,7 @@
 module ApplicationHelper
   def to_strf(datetime)
-    datetime.strftime("%Y/%m/%d %H:%M")
+    if datetime
+      datetime.strftime("%Y/%m/%d %H:%M")
+    end
   end
 end

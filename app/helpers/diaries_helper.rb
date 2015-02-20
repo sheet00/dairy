@@ -20,7 +20,7 @@ module DiariesHelper
 
   private
   def br(str)
-    (str).gsub(/(\r\n?)|(\n)/, "<br />")
+    if str then (str).gsub(/(\r\n?)|(\n)/, "<br />") end
   end
 
   def responsive_embed(str)

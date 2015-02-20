@@ -14,8 +14,20 @@
 
 <div class="form-group">
 	<%= f.label :authored_on, :class => "col-sm-2 control-label" %>
-	<div class="col-sm-4">
+	<div class="col-sm-2">
 		<%= f.text_field :authored_on, :value => @diary.authored_on.nil? ? Time.now.strftime("%Y-%m-%d %H:%M") : @diary.authored_on.strftime("%Y-%m-%d %H:%M") , :class => "form-control" %>
+	</div>
+	<div class="col-sm-2 category">
+		<%= f.select :category_id, Category.order(:no).map{|t| [t.name, t.id]}, {} , {:class => "show-tick"} %>
+	</div>
+	<div class="col-sm-6 weather">
+		<%= f.select :weather_id, Weather.all.map{|t| [t.name, t.id]}, {} , {:class => "show-tick"} %>
+		<div class="btn-group" role="group">
+			<% Weather.all.each do |t| %>
+			<button type="button" class="btn btn-default"><%= weather_icon(t.file_name) %></button>
+			<% end %>
+		</div>
+
 	</div>
 </div>
 <div class="form-group">
@@ -27,31 +39,16 @@
 <div class="form-group">
 	<%= f.label :body, :class => "col-sm-2 control-label" %>
 	<div class="col-sm-10">
-		<%= f.text_area :body, :size => "30x20", :class => "form-control" %>
+		<%= f.text_area :body, :size => "30x10", :class => "form-control" %>
 	</div>
 </div>
 
 
-<div class="form-group">
-	<%= f.label :category_id, :class => "col-sm-2 control-label" %>
-	<div class="col-sm-3">
-		<%= f.select :category_id, Category.order(:no).map{|t| [t.name, t.id]}, {} , {:class => "show-tick"} %>
-	</div>
-
-
-	<%= f.label :weather_id, :class => "col-sm-1 control-label" %>
-	<div class="col-sm-6">
-		<%= f.select :weather_id, Weather.all.map{|t| [t.name, t.id]}, {} , {:class => "show-tick"} %>
-
-
-		<div class="btn-group" role="group">
-			<% Weather.all.each do |t| %>
-			<button type="button" class="btn btn-default"><%= weather_icon(t.file_name) %></button>
-			<% end %>
-		</div>
-
-	</div>
+<div class="diary col-sm-offset-2">
+<div class="well well-sm text-center">preview</div>
+	<%= render "content", :diary => @diary %>
 </div>
+
 
 <div class="form-group">
 	<div class="col-sm-offset-2 col-sm-10">
