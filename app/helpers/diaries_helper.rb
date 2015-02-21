@@ -18,11 +18,11 @@ module DiariesHelper
     image_tag("weathers/" + file_name, :size => "22x22", :class => "weather")
   end
 
-  private
   def br(str)
     if str then (str).gsub(/(\r\n?)|(\n)/, "<br />") end
   end
 
+  private
   def responsive_embed(str)
     #<div class="embed-responsive embed-responsive-16by9">
     doc = Nokogiri::HTML(str)

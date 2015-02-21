@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :categories
 
+
   #月別日記
   get 'monthly/:year/:month' => 'monthly#index', :as => "monthly" , :constraints => {:year=>/\d{4}/, :month=>/\d{1,2}/}
 
@@ -22,6 +23,12 @@ Rails.application.routes.draw do
 
   #RSS
   get 'rss' => 'rss#rss'
+
+  #log
+  get 'log' => "log#production"
+  get 'log/production' => "log#production"
+  get 'log/access' => "log#access"
+  get 'log/error' => "log#error"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

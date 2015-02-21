@@ -1,0 +1,4 @@
+log_path:
+  production: 'log/development.log'
+  access: 'log/nikki.access.log'
+  error : 'log/nikki.error.log'
