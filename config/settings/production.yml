@@ -1,0 +1,4 @@
+log_path:
+  production: 'log/production.log'
+  access: '/var/log/httpd/nikki.access.log'
+  error : '/var/log/httpd/nikki.error.log'
