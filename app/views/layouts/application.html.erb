@@ -28,7 +28,7 @@
 
       <div id="message">
         <% flash.each do |name, msg| %>
-        <%= content_tag :div, :class => "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", :role => "alert" do %>
+        <%= content_tag :div, :class => "alert alert-#{ name == "error" ? "danger" : "success" } alert-dismissable", :role => "alert" do %>
         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <%= msg %>
         <% end %>
@@ -39,7 +39,11 @@
         <%= yield %>
       </div>
 
+      <div class="clearfix"></div>
+      <%= debug(params) if Rails.env == "development" %>
     </div>
+
+
 
     <div class="analytics">
       <script>

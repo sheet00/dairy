@@ -1,0 +1,42 @@
+<% provide :title, controller_name + " [#{action_name}]" %>
+
+
+<div id="log-content" class="panel panel-default">
+
+  <ul class="nav nav-tabs nav-justified">
+    <li class="<%= active?("production") %>"><%= link_to "tmp/production.log", log_production_path %></li>
+    <li class="<%= active?("access") %>"><%= link_to "httpd/access.log", log_access_path %></li>
+    <li class="<%= active?("error") %>"><%= link_to "httpd/error.log", log_error_path %></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+        text <span class="caret"></span>
+      </a>
+
+      <ul class="dropdown-menu" role="menu">
+        <li><%= link_to "production.txt", log_production_path(:format => :txt) %></li>
+        <li><%= link_to "access.txt", log_access_path(:format => :txt) %></li>
+        <li><%= link_to "error.txt", log_error_path(:format => :txt) %></li>
+      </ul>
+
+    </li>
+
+
+  </ul>
+
+
+  <% if @log %>
+  <table class="table content">
+    <% i = 1 %>
+    <% @log.last(50).each do |row|  %>
+    <tr>
+      <td><%= i %></td>
+      <td><%= row %></td>
+    </tr>
+
+    <% i = i + 1 %>
+
+    <% end %>
+  </table>
+  <% end %>
+
+</div>
