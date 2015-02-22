@@ -2,3 +2,6 @@ log_path:
   production: 'log/development.log'
   access: 'log/nikki.access.log'
   error : 'log/nikki.error.log'
+last_fm:
+  api_key: 'sample'
+  user: 'sample'
