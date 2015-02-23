@@ -9,7 +9,7 @@
 
 
 <% if controller_name == "diaries" and action_name == "index" %>
-<% cache :expires_in => 1.hours do %>
+<% cache "last-fm-" + Time.now.hour.to_s do %>
 <div id="last-fm">
 	<h3 class="title">Last.fm</h3>
 	<% info = last_fm_info %>
