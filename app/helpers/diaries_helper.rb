@@ -1,6 +1,7 @@
 module DiariesHelper
 
   def convert_content(str)
+    str = pre_escape(str)
     str = br(str)
     str = responsive_embed(str)
     str = Sanitize.clean(str, Sanitize::Config::RELAXED_CUSTOM)
@@ -62,8 +63,20 @@ module DiariesHelper
     #<div class="embed-responsive embed-responsive-16by9">
     doc = Nokogiri::HTML(str)
     doc.css("iframe").wrap('<div class="embed-responsive embed-responsive-16by9">')
+    doc.css("body").inner_html
+  end
 
-    doc.to_html
+  #preタグ内のみエスケープする
+  def pre_escape(str)
+    tags = str.scan(/<pre>[\s|\S]*?<\/pre>/)
+    tags.each do |item|
+      item.gsub!(/(<pre>|<\/pre>)/,"")
+      escape_item = ERB::Util.html_escape(item)
+      escape_item.gsub!(/(^\r\n|\r\n$)/,"")
+      str.gsub!(item,escape_item)
+    end
+
+    str
   end
 
 end
