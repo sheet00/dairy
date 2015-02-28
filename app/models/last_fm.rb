@@ -26,26 +26,18 @@ class LastFm
 
     json = Net::HTTP.get(uri)
     json_hash = JSON.parse(json)
+    json_hash = json_hash["recenttracks"]["track"]
 
-    begin
-      json_hash = json_hash["recenttracks"]["track"]
+    #初回再生>hash
+    #二回以上>array
+    json_hash = json_hash.first if json_hash.instance_of?(Array)
 
-      #最初の1再生は配列ではない
-      json_hash = json_hash.first if 1 < json_hash.count
-
-      @artist = json_hash["artist"]["#text"]
-      @name = json_hash["name"]
-      @album = json_hash["album"]["#text"]
-      @url = json_hash["url"]
-      @image = json_hash["image"][2]["#text"]
-      @created_at = Time::now
-
-      #raise NoMethodError
-
-    rescue NoMethodError
-      pp json_hash
-      return nil
-    end
+    @artist = json_hash["artist"]["#text"]
+    @name = json_hash["name"]
+    @album = json_hash["album"]["#text"]
+    @url = json_hash["url"]
+    @image = json_hash["image"][2]["#text"]
+    @created_at = Time::now
   end
 
 end
