@@ -51,6 +51,8 @@ module DiariesHelper
 
   #preタグ内のみエスケープする
   def pre_escape(str)
+    if str.nil? then return end
+
     tags = str.scan(/<pre>[\s|\S]*?<\/pre>/)
     tags.each do |item|
       item.gsub!(/(<pre>|<\/pre>)/,"")
