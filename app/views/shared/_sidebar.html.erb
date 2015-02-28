@@ -57,7 +57,7 @@
 		<% end %>
 
 		<li>
-			<a href="<%= rss_path %>">
+			<a href="<%= url_for :controller => 'rss', :action => 'index', :format => 'xml' %>">
 				<%= image_tag("icons/feed-icon.png", :size =>"14x14") %>
 				<span id="rss">rss</span>
 			</a>

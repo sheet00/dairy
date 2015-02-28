@@ -31,9 +31,5 @@ diaries =
 											changeContents($(".diary-footer .diary-authored"),$("#diary_authored_on").val())
 
 										changeContents = ($target,val) ->
-											console.log($target)
-											val = addBr(val)
+											val = val.replace(/\r?\n/g, '<br>')
 											$target.html(val)
-
-										addBr = (str) ->
-											str.replace(/\r?\n/g, '<br>')

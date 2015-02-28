@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'category/:id' => 'category#index', :as =>"diary_category"
 
   #RSS
-  get 'rss' => 'rss#rss'
+  get 'rss' => 'rss#index'
 
   #log
   get 'log' => "log#production"

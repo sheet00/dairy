@@ -25,7 +25,13 @@ module DiariesHelper
 
   #last.fmからデータ取得
   def get_recent_track
+
+    if Rails.env == "development"
+      return LastFm.new()
+    end
+
     cache_expire = Settings.last_fm[:expire_hour].to_i.hour
+
     begin
       info = Rails.cache.fetch("last_fm_recent_track", expires_in: cache_expire) do
         LastFm.new()

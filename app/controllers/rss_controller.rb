@@ -1,14 +1,12 @@
 class RssController < ApplicationController
-  before_filter :request_filter
+  # GET /index
+  def index
+    @diaries = Diary.limit(10).order(authored_on: :desc)
 
-  # GET /rss
-  def rss
-    render :xml => RSS.create_rss
+    respond_to do |format|
+      format.xml
+      format.html
+      format.json {render :json => @diaries}
+    end
   end
-
-  #url取得用
-  def request_filter
-    Thread.current[:request] = request
-  end
-
 end
