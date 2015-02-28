@@ -34,12 +34,14 @@ body{
 		margin-top: 0px;
 	}
 
-	#last-fm{		font-size: small;
+	#last-fm{
+		font-size: small;
 		margin-bottom: $sidebar-bottom-margin;
 
 		.image{
 			display:block;
-			margin:auto;
+			margin: 5px auto 0px;
+			width: 130px;
 		}
 	}
 

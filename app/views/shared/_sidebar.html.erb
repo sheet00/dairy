@@ -8,15 +8,17 @@
 </div>
 
 
-<% if controller_name == "diaries" and action_name == "index" %>
-<% cache "last-fm-" + Time.now.hour.to_s do %>
+<% track = get_recent_track %>
+<% if controller_name == "diaries" and action_name == "index" and track.presence %>
+<% cache track.created_at.strftime("%Y%m%d_%H%M%S") do %>
 <div id="last-fm">
 	<h3 class="title">Last.fm</h3>
-	<% info = last_fm_info %>
-	<div><%= info[:name] %></div>
-	<div>by:<%= info[:artist] %></div>
-	<div>from:<%= info[:album] %></div>
-	<div class="image"><a href="<%= info[:url] %>" class="thumbnail"><%= image_tag info[:image], :width => "120" %></a></div>
+	<div><%= track.name %></div>
+	<div>by:<%= track.artist %></div>
+	<div>from:<%= track.album %></div>
+	<% if track.image.presence %>
+	<div class="image"><a href="<%= track.url %>" class="thumbnail"><%= image_tag track.image %></a></div>
+	<% end %>
 </div>
 <% end %>
 <% end %>

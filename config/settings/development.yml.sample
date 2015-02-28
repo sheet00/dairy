@@ -5,3 +5,4 @@ log_path:
 last_fm:
   api_key: 'sample'
   user: 'sample'
+  expire_hour: 3
