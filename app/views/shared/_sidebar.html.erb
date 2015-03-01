@@ -9,19 +9,20 @@
 
 
 <% track = get_recent_track %>
-<% if controller_name == "diaries" and action_name == "index" and track.presence %>
-<% cache track.created_at.strftime("%Y%m%d_%H%M%S") do %>
-<div id="last-fm">
-	<h3 class="title">Last.fm</h3>
-	<div><%= track.name %></div>
-	<div>by:<%= track.artist %></div>
-	<div>from:<%= track.album %></div>
-	<% if track.image.presence %>
-	<div class="image"><a href="<%= track.url %>" class="thumbnail"><%= image_tag track.image %></a></div>
+<% if controller_name == "diaries" and action_name == "index" and track %>
+	<% cache track.created_at.strftime("%Y%m%d_%H%M%S") do %>
+	<div id="last-fm">
+		<h3 class="title">Last.fm</h3>
+		<div><%= track.name %></div>
+		<div>by:<%= track.artist %></div>
+		<div>from:<%= track.album %></div>
+		<% if track.image.presence %>
+		<div class="image"><a href="<%= track.url %>" class="thumbnail"><%= image_tag track.image %></a></div>
+		<% end %>
+	</div>
 	<% end %>
-</div>
 <% end %>
-<% end %>
+
 
 
 <div id="category-list">

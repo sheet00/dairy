@@ -45,16 +45,41 @@
 
 
 <div class="form-group">
-	<div class="col-sm-offset-2 col-sm-10">
+	<div class="col-sm-offset-2 col-sm-2">
 		<%= f.submit :class => "btn btn-primary" %>
+	</div>
+
+	<div class="image-upload col-sm-7 input-group">
+		<input id="dummy_file" type="text" class="form-control" placeholder="select image">
+		<span class="input-group-btn">
+			<button id="remove" class="btn btn-default" type="button" style="display:none">
+				<span class="glyphicon glyphicon-trash"></span>
+				Remove
+			</button>
+
+			<button id="upload" class="btn btn-default" type="button" style="display:none">
+				<span class="glyphicon glyphicon-open"></span>
+				Upload
+			</button>
+
+			<button id="browse" class="btn btn-primary" type="button">
+				<span class="glyphicon glyphicon-folder-open"></span>
+				Browse...
+			</button>
+		</span>
 	</div>
 </div>
 
+
 <div class="diary col-sm-offset-2">
-<div class="well well-sm text-center">preview</div>
+	<div class="well well-sm text-center">preview</div>
 	<%= render "content", :diary => @diary %>
 </div>
 
 
 <% end %>
 
+
+<%= form_tag({action: "upload"}, remote: true, authenticity_token: true,  id: "image-upload-form") do %>
+<%= file_field :image, :file, :class=>"hide" %>
+<% end %>

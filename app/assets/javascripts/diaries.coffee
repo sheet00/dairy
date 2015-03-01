@@ -33,3 +33,42 @@ diaries =
 										changeContents = ($target,val) ->
 											val = val.replace(/\r?\n/g, '<br>')
 											$target.html(val)
+
+										$(".diary-form #browse").click ->
+											$('#image_file').trigger('click')
+
+										$('.diary-form #image_file').change ->
+											$('#dummy_file').val($(this).val())
+											$('#remove,#upload').show()
+
+										$(".diary-form #remove").click ->
+											$('#image_file').val(null)
+											$('#dummy_file').val(null)
+											$('#remove,#upload').hide()
+
+										$(".diary-form #upload").click ->
+											$form = $("#image-upload-form")
+											fd = new FormData($form[0])
+											$.ajax
+											  type: 'POST'
+											  url: $form.attr("action")
+											  contentType: false
+											  processData: false
+											  data: fd
+											  success: (data,status,xhr) ->
+												showImage(data.file_name)
+
+											  error: (xhr,status,error) ->
+												alert status
+
+										showImage = (file_name) ->
+											$image_tag = $("<body>")
+											$img = $("<img>",{class: "img-thumbnail img-responsive", src: "/img/#{file_name}"})
+											$image_tag.append($img)
+
+											$form = $("#diary_body")
+											text = $form.val()
+											text = text + "\n" + $image_tag.html() + "\n"
+											$form.val(text)
+											$(".diary-form").trigger("change")
+											$(".diary-form #remove").trigger("click")

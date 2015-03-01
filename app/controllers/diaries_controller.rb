@@ -69,6 +69,22 @@ class DiariesController < ApplicationController
     end
   end
 
+
+  # Post /diaries/upload
+  def upload
+    file = params[:image][:file]
+    name = file.original_filename
+    path = "public/img"
+
+    FileUtils.mkdir(path) unless File.exists?(path)
+    File.open(path + "/" + name , 'wb') { |f|
+      f.write(file.read)
+    }
+
+    render json: {:file_name => name}, :status => :ok
+  end
+
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_diary

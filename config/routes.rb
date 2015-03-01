@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :diaries do
     collection do
       get 'admin_index'
+      post 'upload'
     end
   end
 
