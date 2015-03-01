@@ -55,11 +55,8 @@ diaries =
 											  contentType: false
 											  processData: false
 											  data: fd
-											  success: (data,status,xhr) ->
-												showImage(data.file_name)
-
-											  error: (xhr,status,error) ->
-												alert status
+											  success: (data,status,xhr) -> showImage(data.file_name)
+											  error: (xhr,status,error) -> alert status
 
 										showImage = (file_name) ->
 											$image_tag = $("<body>")
