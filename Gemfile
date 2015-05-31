@@ -59,7 +59,7 @@ end
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'bootstrap-generators'
-gem 'mysql2'
+gem 'mysql2', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'sanitize'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'kaminari'

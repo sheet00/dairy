@@ -19,12 +19,12 @@ body{
 	font-family: 'Source Sans Pro', sans-serif;
 
 	.container{
-		@media screen and (max-width: 320px) {
+		@media screen and (max-width: 640px) {
 			padding: 0px;
 		}
 	}
 
-	@media screen and (max-width: 320px) {
+	@media screen and (max-width: 640px) {
 		padding-top: 10px;
 	}
 
@@ -33,6 +33,10 @@ body{
 #header-image{
 	display: block;
 	margin:0px auto 60px;
+
+	@media screen and (max-width: 640px) {
+		margin:0px auto 10px;
+	}
 }
 
 /*sidebar*/
@@ -156,7 +160,7 @@ body{
 		margin-bottom: 50px;
 
 		.panel-body{
-			@media screen and (max-width: 320px) {
+			@media screen and (max-width: 640px) {
 				padding: 5px;
 			}
 		}
@@ -169,8 +173,8 @@ body{
 		}
 
 		.diary-body{
-			@media screen and (max-width: 320px) {
-				padding: 0px;
+			@media screen and (max-width: 640px) {
+				padding: 5px;
 			}
 
 			padding: 10px 30px 0px;
